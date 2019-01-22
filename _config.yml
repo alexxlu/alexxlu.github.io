@@ -1,11 +1,11 @@
 # Site settings
 author: alex lu
-title: 
+title: Projects
 header-img: img/home-bg.png
 email: alex.x.lu@gmail.com
 copyright_name: alex lu
 description: > # this means to ignore newlines until "baseurl:"
-  
+  Project1
 baseurl: "" # the subpath of your site, e.g. /blog
 twitter_username: 
 github_username:  alexxlu
