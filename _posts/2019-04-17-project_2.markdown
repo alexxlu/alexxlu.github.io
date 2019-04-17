@@ -35,6 +35,8 @@ df_disc=pd.read_sql_query("select * from OrderDetail where Discount!=0", engine)
 
 ![Visualizing the datasets](https://raw.githubusercontent.com/alexxlu/dsc-2-final-project-online-ds-pt-100118/master/Q1graph.png)
 
+
+
 **Step 3: calculating p-value with T-Test function**
 
 #Calculating p-value with inbuilt T-test function
