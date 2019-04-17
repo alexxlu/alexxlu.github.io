@@ -63,7 +63,8 @@ Cohen_d(df_disc.Quantity, df_fp.Quantity)
 
 ![Tukey Test](https://raw.githubusercontent.com/alexxlu/dsc-2-final-project-online-ds-pt-100118/master/Q1%20Tukey.png)
 
-**Step 5: Conclusion**
+**Step 5: Conclusion and Interpretation of the Results**
+
 1) p-value=1.1e-10
 p< alpha: reject null hypothesis. there is a statistical significance between discount and quantity purchase
 
