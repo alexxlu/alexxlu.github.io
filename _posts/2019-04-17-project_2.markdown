@@ -1,0 +1,18 @@
+---
+layout: post
+title:      "Project 2 "
+date:       2019-04-17 09:24:40 +0000
+permalink:  project_2
+---
+
+### Question 1: Do discounts have a statistically significant effect on the number of products customers order? If so, at what level(s) of discount?
+
+Step 1: construct Hypothesis:
+
+Null Hypothesis (H0): Discount has no statistical significant relationship to number of products customer orders. mu_fp=mu_disc (mu_fp is the mean of full price quantity. mu_disc is the mean of discount quantity.) 
+
+Alternative(H-alpha): Discount has a statistically significant impact to the number of products customer orders. Alpha is set to 0.05. mu_fp!=mu_disc
+
+Step 2: extracts relevant data to form a data frame:
+
+![](http://)
