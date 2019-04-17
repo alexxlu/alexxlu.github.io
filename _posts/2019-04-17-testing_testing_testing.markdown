@@ -11,7 +11,7 @@ permalink:  testing_testing_testing
 
 It seems the ERD diagram is different from the actual sql extraction: 1)Employee vs Employees 2)EmployeeTerritory vs EmployeeTerritories ... it seems all the tables are singlar vs plural in the ERD table
 
-![Northwind ERD](https://github.com/alexxlu/dsc-2-final-project-online-ds-pt-100118/blob/master/Northwind_ERD.png)
+![Northwind ERD](https://raw.githubusercontent.com/alexxlu/dsc-2-final-project-online-ds-pt-100118/master/Northwind_ERD.png)
 
 **Step 1: construct Hypothesis:**
 
