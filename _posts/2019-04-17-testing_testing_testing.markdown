@@ -24,13 +24,14 @@ Alternative(H-alpha): Discount has a statistically significant impact to the num
 - **seperate the dataset into two sets (one with discount, and one without discount)**
 - **visualize the two datasets**
 
+'''
 #OrderDetail table has all the revelant data we need (Discount and Quanity)
 df_OD=pd.read_sql_query("select * from OrderDetail", engine)
 
 #data set where there is no discount or full price (fp), or control
 df_fp=pd.read_sql_query("select * from OrderDetail where Discount=0", engine)
 df_disc=pd.read_sql_query("select * from OrderDetail where Discount!=0", engine)
-
+'''
 
 
 ![Visualizing the datasets](https://raw.githubusercontent.com/alexxlu/dsc-2-final-project-online-ds-pt-100118/master/Q1graph.png)
