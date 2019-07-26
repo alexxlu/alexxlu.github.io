@@ -1,0 +1,15 @@
+---
+layout: post
+title:      "Project 3 "
+date:       2019-07-26 15:43:28 +0000
+permalink:  project_3
+---
+
+
+**Background:** Company X had created an app with energy report dashboard, energy breakdown etc for the domestic utility industry. Utility company Y had given it a trial among its customer base for a duration of 9months. The app has 10 screens: Activate, Breakdown, Challenge, Energy_History, Energy_Reports, Feed, Forgot_password, Other, Settings, Trend.
+
+**Data:** Each month there are different cohort of customer signed up for the app. We have a monthly app usage time by screens for each consumerID. (ie. consumer A accessed and stayed on 'Activation' screen for 3seconds, 'Energy Report' screen for 1minute etc.) There are 5286 uniqe customer ID * 10 columns screen usage time for each month (for 9 months) in the raw data. Albeit the users started using the app at different starting month.
+
+**Problem:** We would like to find out if we can build a model predicting an user will be active or inactive based on previous month screen usage breakdown.
+
+
