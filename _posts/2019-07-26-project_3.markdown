@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Project 3 "
-date:       2019-07-26 15:43:28 +0000
+date:       2019-07-26 11:43:29 -0400
 permalink:  project_3
 ---
 
@@ -11,5 +11,89 @@ permalink:  project_3
 **Data:** Each month there are different cohort of customer signed up for the app. We have a monthly app usage time by screens for each consumerID. (ie. consumer A accessed and stayed on 'Activation' screen for 3seconds, 'Energy Report' screen for 1minute etc.) There are 5286 uniqe customer ID * 10 columns screen usage time for each month (for 9 months) in the raw data. Albeit the users started using the app at different starting month.
 
 **Problem:** We would like to find out if we can build a model predicting an user will be active or inactive based on previous month screen usage breakdown.
+
+
+*Step 1* *Clean Data*
+
+Define active/inactive flag: if an user accessed any screen more than 3 seconds on given any month (other than Setting, forgetting passwords or activation page)
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/df_format%20def.png)
+
+Create Monthly dataset: Combine Month T screen usage breakdown data (10 columns) with Month T+1 active/inactive flag. Then merge all 9 month data, and get rid of outliers. The resulting combined data (df_comb) set looks like below:
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/df_comb%20head.png)
+
+*Step 2: Understand Data*
+
+First, do a quick dataset summary to spot outliers. There are 4 rows of data in 21k rows that has outlier data: an user stayed at the same app screen for more than 500 seconds (8.3minutes).
+
+Second, draw a box chart of the dataset after taking out outliers. The chart below suggested that the mostly viewed screen are Energy Report and Trend screens. For company X, they consider the secret sauce for the company is in the Breakdown page, which shows the energy usage breakdown by appliances in the home from kettle to refridgrator. The box chart shows that consumers are actually not too bothered about the breakdown. It is among the least viewed screen.
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/box%20chart%20for%20the%20data.png)
+
+Next, check if the dataset is balanced. The graph below shows that it is a very imbalanced dataset with 73% of the target are 0 flag, and 27% are 1 flag. 
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/Inbalanced%20data.png)
+
+Hence, we cannot just simply take the train/test split data. Need to make the training data a balanced set with the code below.
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/Balanced%20data.png)
+
+Finally, check the correlation on the training dataset X. They should be independent variables. (In this case, the independent variables represent the amount of time an user stay on each screen on any given month.) As per correlation graph below, they are mostly independent apart from 'Forget Password' and 'Activate' screens, which is expected.
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/corr%20on%20X_train.png)
+
+*Step 3: Modeling*
+
+A. Logistic Regression
+Run a standard Logistic Regression Model, and the result is in the following chart. Notice, unimpressive f1 score and accuracy, and strangely predicting True Positive case a lot better than True Negative case.
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/Logistic%20Regression%20Result.png)
+
+B. Decision Tree
+Run a default Decsion Tree first. Then we try to find an optimized decision tree by fine tuning parameters. For example, in the below, we try to isolate Tree Depth parametere, and it shows that ROC for the test set is at its best when tree depth is around 4 to 5. We then do the same for minimum sample split and max features.
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/decision%20tree%20fine%20tuning%20graph.png)
+
+As a result of optimizing Decision Tree parameters, Optimized model was able to do a better job in predicting accuracy and f1. However, it is worth noting that Optimized model did worse in predicting True Positive vs Default Model.
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/decision%20tree%20default%20vs%20optimized.png)
+
+C. Random Forest
+Run a grid search random forest model: Same f1 score as optimized Decision Tree, but better at predicting True Positive.
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/random%20forest%20result.png)
+
+D. Ada Boosting
+Run a default Ada boosting, same f1 as Random Forest, and marginally lower by 1% in ROC.
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/ada%20boosting%20result.png)
+
+E. Summary
+Random Forest produced the best f1 Score and AUC, albeit the difference between Decision Tree, Random Forest and Ada Boosting are negligible.
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/summary%20model%20results.png)
+
+*Step 4: Feature Importance*
+How to make sense of Random Forest Results? What are the screens that are most important in predicting future app usage? This is where Feature Importance come in:
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/feature%20importance%20code.png)
+
+In the Random Forest Model, top 3 feature screens of the app explains more than 50% of the outcome: Trend, Energy History, and Feed.
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/feature%20importance%20graph.png)
+
+*Step 5: Business Implication*
+
+* The company should focus design effort on Energy Report, Trend and feed pages of the app, and spend less time on the rest.
+* 
+* There are a large number of users becoming inactive. Further cohort Analysis suggested that about 25% of user remain active after few months of using it.
+* 
+* If the company wants to improve user usage, they could prompt with feeds relevant to the user, when the model predicts that the user is likely to become inactive next month.
+* 
+* Further more, doing a Cohort Analysis below - the result suggested that this is not a sticky app for the consumer. 
+
+![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/cohort%20analysis.png)
+*
+* In conclusion, little evidence of longevity. The company’s value proposition needs to be re-assessed.
 
 
