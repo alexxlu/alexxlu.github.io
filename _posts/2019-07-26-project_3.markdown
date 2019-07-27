@@ -93,7 +93,7 @@ In the Random Forest Model, top 3 feature screens of the app explains more than 
 * Further more, doing a Cohort Analysis below - the result suggested that this is not a sticky app for the consumer. 
 
 ![](https://raw.githubusercontent.com/alexxlu/dsc-3-final-project-online-ds-pt-100118/master/pic/cohort%20analysis.png)
-*
+
 * In conclusion, little evidence of longevity. The company’s value proposition needs to be re-assessed.
 
 
