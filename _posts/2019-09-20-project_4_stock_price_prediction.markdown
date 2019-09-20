@@ -79,7 +79,10 @@ Without displaying each one of the result, the MSE results ranged from 20 to 200
 
 **Conclusion**
 
-The best model in this case is the simplest model with one LSTM layer and one Dense layer, with consistent MSE around 9 to 12. To translate this MSE number into something tangible: this is saying that the price deviation between true and predicted is aroudn +/-3 to +/-3.5. Given the stock price started in $60s/share and went up to $160/share, a $3 deviation is a 2% to 5% deviation from the price, which is quite good. However, to be clear, the model is a good guidance in a normal market trading environment. The model is not suitable for prediction in unprecedented major event, such as Asian crisis, 9/11 or financial crisis 2007. When trading with this model, stop loss trigger should be implemented, especially in the downside cases. (The model seems to have a undervaluation tendency when the market is in the uptrend.)
+The best model in this case is the simplest model with one LSTM layer and one Dense layer, with consistent MSE around 9 to 12. To translate this MSE number into something tangible: this is saying that the price deviation between true and predicted is aroudn +/-3 to +/-3.5. Given the stock price started in $60s/share and went up to $185/share, a $3 deviation is a 1.5% to 5% deviation from the price, which is quite good. 
 
+In addtion, It is worth point out that the model has a undervalue (predict < actual)  tendency in the bull market, and overvalues vs actual when the market is selling off. 
+
+To be clear, the model is a good guidance in a normal market trading environment. The model is not suitable for prediction in unprecedented major event, such as Asian crisis, 9/11 or financial crisis 2007. When trading with this model, stop loss trigger should be implemented, especially in a bearish market. 
 
 
