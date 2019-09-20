@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Project 4: Stock price prediction"
-date:       2019-09-20 14:33:08 +0000
+date:       2019-09-20 10:33:08 -0400
 permalink:  project_4_stock_price_prediction
 ---
 
