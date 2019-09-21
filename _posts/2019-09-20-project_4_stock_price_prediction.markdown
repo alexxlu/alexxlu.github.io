@@ -38,7 +38,7 @@ I started with a simple model: 1x LSTM layer with 20 nodes and 1x Dense layer.
 To my surprise, the Mean Squred Error (MSE) is very low, and good convergence on training set loss value.
 ![](https://raw.githubusercontent.com/alexxlu/Project4/master/Pictures/Model1%20loss%20graph%20and%20MSE.png)
 Bringing prediction value from 0 to 1 scale back to its original $/share stock price, and compare last 120days actual price, we get a very good looking graph suggesting that the model 1 does a very decent job.
-![](https://raw.githubusercontent.com/alexxlu/Project4/master/Pictures/Model%201%20actual%20vs%20predict.png)
+![](https://raw.githubusercontent.com/alexxlu/Project4/master/Pictures/Model%201%20actual%20vs%20pred.png)
 
 Model 2:
 Adding a bit more complexity:
