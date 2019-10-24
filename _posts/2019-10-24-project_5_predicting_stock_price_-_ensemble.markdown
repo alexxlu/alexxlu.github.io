@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Project 5: Predicting stock price - Ensemble"
-date:       2019-10-24 13:18:23 +0000
+date:       2019-10-24 09:18:24 -0400
 permalink:  project_5_predicting_stock_price_-_ensemble
 ---
 
