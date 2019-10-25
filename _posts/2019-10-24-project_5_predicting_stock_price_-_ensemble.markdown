@@ -24,10 +24,58 @@ This is what raw data looks like:
 Data summary:
 ![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/data%20describe().png)
 
+## Static Model
+Static Model: 80% training 20% testing
 
+Static Model Train test split:
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Set%20initial%20training%3Atesting%20set.png)
 
+Testing Model:
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Test%20Stactic%20Model.png)
 
+Try all Models: 
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Static%20try%20all%20models.png)
 
+Results: Very strange results!!! makes very little sense why it has 'butterfly wings'! very puzzling
+Bagging
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Static%20Bagging.png)
 
+Random Forest
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Static%20Random%20Forest.png)
 
+Adaboost
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Static%20Adaboost%20.png)
 
+Model results Mean Squared Error comparison:
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Static%20Model%20Score.png)
+
+## Dynamic Model
+Dynamic Model: initial 80% training, 20% testing, and as we predict each of the testing dates at day T, we add previous T-1 actual data back to the training set. As such, the training set grows with time. This makes intuitive sense. If one tries to predict today's stock price, one would use all the information before today to form an opinion.
+
+Dynmaic Initial Train Test Split:
+Initiation is the same as static above.
+
+Testing Model:
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/def%20Dynamic%20Model%20fitting%20.png)
+
+Try all Models:
+Same as static above.
+
+Results: Very different! this makes a lot of sense
+
+Bagging
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Dynamic%20Bagging%20p1.png)
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Dynamic%20Bagging%20p2.png)
+
+Random Forest
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Dynamic%20RF%20p1.png)
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Dynamic%20RF%20p2.png)
+
+Adaboost
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Dynamic%20Adaboost.png)
+
+Model MSE score: Ensemble scores improved by 10 folds!
+![](https://raw.githubusercontent.com/alexxlu/Project5/master/Images/Dynamic%20Model%20Score.png)
+
+## Conclusion
+Static Model vs Dynamic Model produced very different results for Ensemble methods. Intuitively, Dynamic model outperformance makes sense as one takes in more training data each step of the way. They model could be further fine tuned with parameters. However, I can't explain the 'butterfly wing' effect on the static model. Open to suggestion or if anyone could point out what I am doing wrong.
