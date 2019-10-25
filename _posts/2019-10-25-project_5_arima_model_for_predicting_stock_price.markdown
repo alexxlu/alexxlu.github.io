@@ -1,7 +1,7 @@
 ---
 layout: post
 title:      "Project 5: Arima model for predicting stock price"
-date:       2019-10-25 13:29:36 +0000
+date:       2019-10-25 09:29:37 -0400
 permalink:  project_5_arima_model_for_predicting_stock_price
 ---
 
